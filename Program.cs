@@ -28,15 +28,15 @@ class Program
                     foreach (Student item in students)
                     {
                         //Console.WriteLine($"Group {item.Group} \n Name {item.Name} \n  Date{item.DateOfBirth} ");    
-                        var print = (Student student, string directory) =>
+                        var print = (Student student, string dirWrite) =>
                         {
-                            if (!Directory.Exists(directory))
+                            if (!Directory.Exists(dirWrite))
                             {
-                                Directory.CreateDirectory(directory);
+                                Directory.CreateDirectory(dirWrite);
                             }
                             try
                             {
-                                StreamWriter output = File.AppendText(directory + student.Group + ".txt");
+                                StreamWriter output = File.AppendText(dirWrite + student.Group + ".txt");
                                 output.WriteLine($"Имя студента : {student.Name}");
                                 output.WriteLine($"Дата рождения: {student.DateOfBirth:dd MMMM yyyy}");
                                 output.WriteLine("<---------------------------->");
